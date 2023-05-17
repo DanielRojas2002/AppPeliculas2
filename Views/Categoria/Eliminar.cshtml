@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Eliminar</h1>
+
+@model Categorium
+
+<form class="form-control" asp-action="Eliminar">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                
+                <input asp-for="IdCategoria" class="form-control" hidden />
+                
+
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" disabled />
+
+
+               
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-start mt-3">
+                <a asp-action="Index" class="btn btn-success w-50 m-2">Regresar</a>
+
+                
+                   
+                
+                <button type="submit" class="btn btn-danger  w-50  m-2 ">Eliminar</button>
+               
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+</form>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+
+
+
+    }
+
+
+}

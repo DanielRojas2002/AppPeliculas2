@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<Categorium>
+
+
+
+
+<div class="d-flex justify-content-around ">
+    <h1>CATEGORIAS</h1>
+
+    <a asp-action="Upsert" asp-controller="Categoria" class="btn btn-success m-0"> Agregar Categoria</a>
+</div>
+
+<table class="table ">
+    <tr >
+        <th>
+            Id Categoria
+        </th>
+
+        <th>
+            Descripcion
+        </th>
+
+        <th class="text-center">
+            Acciones
+        </th>
+
+       
+    </tr>
+
+    @foreach (var categoria in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m=>categoria.IdCategoria)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m=>categoria.Descripcion)
+            </td>
+
+            <td class="d-flex justify-content-around ">
+                <a asp-action="Upsert" asp-route-idcategoria="@categoria.IdCategoria" class="btn btn-primary">Editar</a>
+                <a asp-action="Eliminar" asp-route-idcategoria="@categoria.IdCategoria" class="btn btn-danger">Eliminar</a>
+            </td>
+
+            
+        </tr>
+
+    }
+</table>
+

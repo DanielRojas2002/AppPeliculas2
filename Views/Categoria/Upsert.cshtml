@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "Upsert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Categorium;
+
+
+@if (Model.IdCategoria == 0)
+{
+    <h1>Crear Categoria</h1>
+}
+else
+{
+    <h1>Modificar Categoria</h1>
+}
+
+<form class="form-control" asp-action="Upsert">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @if (Model.IdCategoria != 0)
+                {
+                    <input asp-for="IdCategoria" class="form-control" hidden />
+                }
+
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+
+
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-start mt-3">
+                <a asp-action="Index" class="btn btn-success w-50 m-2">Regresar</a>
+
+                @if (Model.IdCategoria == 0)
+                {
+                    <button type="submit" class="btn btn-primary  w-50  m-2 ">Crear</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-danger  w-50  m-2 ">Editar</button>
+                }
+               
+            </div>
+        </div>
+
+    </div>
+
+
+
+</form>
+
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+
+
+
+    }
+
+
+}
