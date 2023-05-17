@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model List<Autor>
+
+<div class="d-flex justify-content-around ">
+    <h1>Autores</h1>
+
+    <a asp-action="Upsert" asp-controller="Autor"  class="btn btn-success m-0"> Agregar Autor</a>
+</div>
+
+<table class="table ">
+    <tr>
+        <th>
+            Id Autor
+        </th>
+
+        <th>
+            Nombre 
+        </th>
+
+        <th>
+            Apellido Paterno
+        </th>
+
+        <th>
+            Apellido Materno
+        </th>
+
+        <th class="text-center">
+            Acciones
+        </th>
+
+
+    </tr>
+
+    @foreach (var autor in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m=>autor.IdAutor)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m=>autor.Nombre  )
+            </td>
+
+            <td>
+                @Html.DisplayFor(m=>autor.APaterno  )
+            </td>
+
+            <td>
+                @Html.DisplayFor(m=>autor.AMaterno  )
+            </td>
+
+            <td class="d-flex justify-content-around ">
+                <a asp-action="Upsert" asp-route-idautor="@autor.IdAutor" class="btn btn-primary">Editar</a>
+                <a asp-action="Eliminar" asp-route-idautor="@autor.IdAutor" class="btn btn-danger">Eliminar</a>
+            </td>
+
+
+        </tr>
+
+    }
+</table>
