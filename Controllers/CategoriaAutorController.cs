@@ -24,7 +24,7 @@ namespace AppPeliculas.Controllers
 
 
             // aqui no hay 
-            var query_join4 = from tablaunion in _context.CategoriaAutors
+            var query_join4 = from tablaunion in  _context.CategoriaAutors
                               join Categoria in _context.Categoria
                               on tablaunion.IdCategoria equals Categoria.IdCategoria
                               join Autor in _context.Autors
